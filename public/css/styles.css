@@ -1,3 +1,4 @@
+@import url(http://fonts.googleapis.com/css?family=Montserrat:400,700);
 /*!
  * Bootstrap v3.0.0
  *
@@ -258,7 +259,7 @@ html {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 body {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 14px;
   line-height: 1.428571429;
   color: #333333;
@@ -393,7 +394,7 @@ h6,
 .h4,
 .h5,
 .h6 {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: 500;
   line-height: 1.1;
 }
@@ -1886,8 +1887,8 @@ fieldset[disabled] .btn-default.active {
 }
 .btn-primary {
   color: #ffffff;
-  background-color: #428bca;
-  border-color: #357ebd;
+  background-color: #ffffff;
+  border-color: #ffffff;
 }
 .btn-primary:hover,
 .btn-primary:focus,
@@ -1895,8 +1896,8 @@ fieldset[disabled] .btn-default.active {
 .btn-primary.active,
 .open .dropdown-toggle.btn-primary {
   color: #ffffff;
-  background-color: #3276b1;
-  border-color: #285e8e;
+  background-color: #ebebeb;
+  border-color: #e0e0e0;
 }
 .btn-primary:active,
 .btn-primary.active,
@@ -1918,8 +1919,8 @@ fieldset[disabled] .btn-primary:active,
 .btn-primary.disabled.active,
 .btn-primary[disabled].active,
 fieldset[disabled] .btn-primary.active {
-  background-color: #428bca;
-  border-color: #357ebd;
+  background-color: #ffffff;
+  border-color: #ffffff;
 }
 .btn-warning {
   color: #ffffff;
@@ -5906,12 +5907,35 @@ td.visible-print {
     display: none !important;
   }
 }
-.header {
+.header,
+.subhead {
   text-align: center;
-  margin-top: 60px;
+}
+.submit {
+  text-align: center;
+}
+.subhead {
+  padding: 20px;
 }
 p {
   font-size: 26px;
   text-align: left;
   margin-top: 24px;
+}
+.jumbo {
+  font-size: 100px;
+}
+#article-word {
+  background: #fff;
+  color: #333333;
+  font-size: 26px;
+}
+#article-word button {
+  border: 0 0 1px 0;
+}
+::-webkit-input-placeholder,
+:-moz-placeholder,
+::-moz-placeholder,
+:-ms-input-placeholder {
+  font-size: 26px;
 }
