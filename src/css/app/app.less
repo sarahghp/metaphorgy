@@ -20,10 +20,16 @@
 }
 
 p.entry {
-  font-size: 24px;
   text-align: left;
   line-height: 45px;
   margin-top: 3px;
+  font-size: 24px;
+}
+
+
+p.result {
+  font-size: 48px;
+  line-height: 60px;
 }
 
 h1 {
@@ -71,6 +77,14 @@ h1 {
   margin: 84px 0;
 }
 
+.perspective {
+  -webkit-perspective: 800px;
+  -moz-perspective: 800px;
+  perspective: 800px;
+  display: inline-block;
+}
+
+
 .btn-entry {
   border: none;
   background-color: #eee;
@@ -81,7 +95,22 @@ h1 {
   letter-spacing: 1px;
   font-weight: 700;
   outline: none;
+  position: relative;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  transition: all 0.3s;
+
+  display: block;
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+
 }
+
+.btn-entry:active {
+  background: #fff;
+}
+
 
 .btn-entry:after,
 .btn-entry:before {
@@ -91,13 +120,19 @@ h1 {
   position: absolute;
   left: 0;
   line-height: 70px;
+  content: '';
+  z-index: -1;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  transition: all 0.3s;
 }
+
 
 .btn-entry:after {
   top: -100%;
-  background: #7aca7c;
-  color: #358337;
-  content: 'It worked!';
+  background: #38fd7f;
+  color: #01471a;
+  content: 'Do another!';
   -webkit-transform-origin: 0% 100%;
   -webkit-transform: rotateX(90deg);
   -moz-transform-origin: 0% 100%;
@@ -113,8 +148,6 @@ h1 {
   background: #e96a6a;
   color: #a33a3a;
   content: 'Error!';
-  font-weight: 700;
-  font-family: 'Lato', Calibri, Arial, sans-serif;
   -webkit-transform-origin: 0% 0%;
   -webkit-transform: rotateX(-90deg);
   -moz-transform-origin: 0% 0%;
@@ -147,4 +180,9 @@ h1 {
   -ms-transform: rotateX(90deg) translateY(-100%);
   transform-origin: 50% 0%;
   transform: rotateX(90deg) translateY(-100%);
+}
+
+.word {
+  padding: 0 6px;
+  border-bottom: 2px solid #ff4050;
 }
