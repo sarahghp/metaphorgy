@@ -5911,7 +5911,8 @@ td.visible-print {
   color: #0c625c;
 }
 .container {
-  min-height: 200px;
+  height: 600px;
+  z-index: 1;
 }
 #question,
 #answer {
