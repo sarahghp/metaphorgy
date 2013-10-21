@@ -11,18 +11,16 @@
     <header>
       <div class='jumbotron header'> 
         <div class='jumbo'>METAPHORGY</div>
-        <div class='subhead'>
+      </div>
+      <div class='jumbotron subhead'>
           <h3>a website to help you build metaphors</h3>
           <h5>Pick your article, enter your word, get back a metaphor.</h5>
         </div>
-
-      </div>
     </header>
 
     <div class='container'>
-      <div class='row'>
-        <div class='col-sm-7 col-sm-offset-2'>
-          
+      <div id='question' class='row'>
+        <div class='col-sm-7 col-sm-offset-2'>          
             <div class='input-group input-group-lg'>
               <div class='input-group-btn'>
                 <button type='button' id='article-word' class='btn btn-primary dropdown-toggle' data-toggle='dropdown'> My <span class='caret'></span></button>
@@ -35,12 +33,11 @@
               <input type='text' id='word-entry' class='form-control' placeholder='Enter a word'>
             </div>
           </div>
-
           <div class='col-sm-2'><p class='entry'>is a</p></div>      
       </div>
 
-      <div class='col-sm-7 col-sm-offset-2 result'>
-        <p class='result'>My <span class="word">duck</span> is a <span class="word">rusty spoon</span>.
+      <div id='answer' class='col-sm-12 hidden'>
+        <p class='result'>My <span class='word'>duck</span> is a <span class='word'>rusty spoon</span>.
       </div>
 
       <div class='row submit'>
