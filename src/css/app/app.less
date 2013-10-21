@@ -2,8 +2,9 @@
   text-align: center;
 }
 
-.subhead {
+.jumbotron.subhead {
   padding: 20px;
+  background: #a6eaf0;
 }
 
 .jumbo {
@@ -19,40 +20,42 @@
   min-height: 200px;
 }
 
+#question, #answer {
+  margin: 84px 0;
+}
+
 p.entry {
   text-align: left;
   line-height: 45px;
-  margin-top: 3px;
-  font-size: 24px;
+  margin-top: 10px;
+  font-size: 48px;
 }
 
 
 p.result {
   font-size: 48px;
   line-height: 60px;
+  text-align: center;
 }
 
-h1 {
-  font-size: 24px;
-  line-height: 28px;
-
-}
 
 #article-word {
   background: #fff;
   color: @gray-dark;
-  font-size: 24px;
+  font-size: 48px;
   line-height: 28px;
+  height: 63px;
 }
 
 #article-word button {
-    border: 0;
+  border: 0;
 }
 
 #word-entry {
   border: 0;
   border-radius: 0;
   border-bottom: 2px solid #000;
+  height: 63px;
 }
 
 ::-webkit-input-placeholder { 
@@ -74,7 +77,6 @@ h1 {
 
 .submit {
   text-align: center;
-  margin: 84px 0;
 }
 
 .perspective {
@@ -180,6 +182,10 @@ h1 {
   -ms-transform: rotateX(90deg) translateY(-100%);
   transform-origin: 50% 0%;
   transform: rotateX(90deg) translateY(-100%);
+}
+
+.hidden {
+  display: none;
 }
 
 .word {

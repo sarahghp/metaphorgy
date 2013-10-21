@@ -1,4 +1,6 @@
 @import url(http://fonts.googleapis.com/css?family=Montserrat:400,700);
+
+@import url(http://fonts.googleapis.com/css?family=Coustard);
 /*!
  * Bootstrap v3.0.0
  *
@@ -4263,7 +4265,7 @@ a.list-group-item.active > .badge,
 }
 .jumbotron {
   padding: 30px;
-  margin-bottom: 30px;
+  margin-bottom: 0;
   font-size: 24px;
   font-weight: 200;
   line-height: 2.1428571435;
@@ -5897,8 +5899,9 @@ td.visible-print {
 .subhead {
   text-align: center;
 }
-.subhead {
+.jumbotron.subhead {
   padding: 20px;
+  background: #a6eaf0;
 }
 .jumbo {
   font-size: 100px;
@@ -5910,25 +5913,27 @@ td.visible-print {
 .container {
   min-height: 200px;
 }
+#question,
+#answer {
+  margin: 84px 0;
+}
 p.entry {
   text-align: left;
   line-height: 45px;
-  margin-top: 3px;
-  font-size: 24px;
+  margin-top: 10px;
+  font-size: 48px;
 }
 p.result {
   font-size: 48px;
   line-height: 60px;
-}
-h1 {
-  font-size: 24px;
-  line-height: 28px;
+  text-align: center;
 }
 #article-word {
   background: #fff;
   color: #333333;
-  font-size: 24px;
+  font-size: 48px;
   line-height: 28px;
+  height: 63px;
 }
 #article-word button {
   border: 0;
@@ -5937,6 +5942,7 @@ h1 {
   border: 0;
   border-radius: 0;
   border-bottom: 2px solid #000;
+  height: 63px;
 }
 ::-webkit-input-placeholder {
   font-size: 24px;
@@ -5952,7 +5958,6 @@ h1 {
 }
 .submit {
   text-align: center;
-  margin: 84px 0;
 }
 .perspective {
   -webkit-perspective: 800px;
@@ -6045,6 +6050,9 @@ h1 {
   -ms-transform: rotateX(90deg) translateY(-100%);
   transform-origin: 50% 0%;
   transform: rotateX(90deg) translateY(-100%);
+}
+.hidden {
+  display: none;
 }
 .word {
   padding: 0 6px;
