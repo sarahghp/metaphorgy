@@ -5911,10 +5911,14 @@ td.visible-print {
   min-height: 200px;
 }
 p.entry {
-  font-size: 24px;
   text-align: left;
   line-height: 45px;
   margin-top: 3px;
+  font-size: 24px;
+}
+p.result {
+  font-size: 48px;
+  line-height: 60px;
 }
 h1 {
   font-size: 24px;
@@ -5950,6 +5954,12 @@ h1 {
   text-align: center;
   margin: 84px 0;
 }
+.perspective {
+  -webkit-perspective: 800px;
+  -moz-perspective: 800px;
+  perspective: 800px;
+  display: inline-block;
+}
 .btn-entry {
   border: none;
   background-color: #eee;
@@ -5960,4 +5970,83 @@ h1 {
   letter-spacing: 1px;
   font-weight: 700;
   outline: none;
+  position: relative;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  transition: all 0.3s;
+  display: block;
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+.btn-entry:active {
+  background: #fff;
+}
+.btn-entry:after,
+.btn-entry:before {
+  text-transform: uppercase;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  line-height: 70px;
+  content: '';
+  z-index: -1;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  transition: all 0.3s;
+}
+.btn-entry:after {
+  top: -100%;
+  background: #38fd7f;
+  color: #01471a;
+  content: 'Do another!';
+  -webkit-transform-origin: 0% 100%;
+  -webkit-transform: rotateX(90deg);
+  -moz-transform-origin: 0% 100%;
+  -moz-transform: rotateX(90deg);
+  -ms-transform-origin: 0% 100%;
+  -ms-transform: rotateX(90deg);
+  transform-origin: 0% 100%;
+  transform: rotateX(90deg);
+}
+.btn-entry:before {
+  top: 100%;
+  background: #e96a6a;
+  color: #a33a3a;
+  content: 'Error!';
+  -webkit-transform-origin: 0% 0%;
+  -webkit-transform: rotateX(-90deg);
+  -moz-transform-origin: 0% 0%;
+  -moz-transform: rotateX(-90deg);
+  -ms-transform-origin: 0% 0%;
+  -ms-transform: rotateX(-90deg);
+  transform-origin: 0% 0%;
+  transform: rotateX(-90deg);
+}
+.btn-entry.btn-success3d {
+  background: #aaa;
+  -webkit-transform-origin: 50% 100%;
+  -webkit-transform: rotateX(-90deg) translateY(100%);
+  -moz-transform-origin: 50% 100%;
+  -moz-transform: rotateX(-90deg) translateY(100%);
+  -ms-transform-origin: 50% 100%;
+  -ms-transform: rotateX(-90deg) translateY(100%);
+  transform-origin: 50% 100%;
+  transform: rotateX(-90deg) translateY(100%);
+}
+.btn-entry.btn-error3d {
+  background: #aaa;
+  -webkit-transform-origin: 50% 0%;
+  -webkit-transform: rotateX(90deg) translateY(-100%);
+  -moz-transform-origin: 50% 0%;
+  -moz-transform: rotateX(90deg) translateY(-100%);
+  -ms-transform-origin: 50% 0%;
+  -ms-transform: rotateX(90deg) translateY(-100%);
+  transform-origin: 50% 0%;
+  transform: rotateX(90deg) translateY(-100%);
+}
+.word {
+  padding: 0 6px;
+  border-bottom: 2px solid #ff4050;
 }
