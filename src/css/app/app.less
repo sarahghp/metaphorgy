@@ -23,6 +23,9 @@
 
 #question, #answer {
   margin: 84px 0;
+  -webkit-transition: opacity 0.3s;
+  -moz-transition: opacity 0.3s;
+  transition: opacity 0.3s;
 }
 
 p.entry {
@@ -58,6 +61,7 @@ p.result {
   border-bottom: 2px solid #000;
   height: 63px;
 }
+
 
 ::-webkit-input-placeholder { 
     font-size: 24px;  
@@ -98,7 +102,6 @@ p.result {
   letter-spacing: 1px;
   font-weight: 700;
   outline: none;
-  position: relative;
   -webkit-transition: all 0.3s;
   -moz-transition: all 0.3s;
   transition: all 0.3s;
@@ -186,7 +189,7 @@ p.result {
 }
 
 .hidden {
-  display: none;
+  opacity: 0;
 }
 
 .word {
