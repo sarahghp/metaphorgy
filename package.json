@@ -1,0 +1,42 @@
+{
+  "name": "metaphorgy-client",
+  "description": "web client for metaphorgy",
+  "version": "0.0.1",
+  "main": "app.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "watch": "./node_modules/.bin/grunt watch-build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sarahgp/metaphorgy-client.git"
+  },
+  "dependencies": {
+    "connect": "2.x",
+    "express": "3.x",
+    "handlebars": "1.x",
+    "express-hbs": "0.x"
+  },
+  "devDependencies": {
+    "mocha": "1.x",
+    "should": "2.x",
+    "browserify": "2.x",
+    "handlebars-runtime": "1.x",
+    "hbsfy": "0.x",
+    "uglify-js": "2.x",
+    "grunt": "0.x",
+    "grunt-cli": "0.x",
+    "grunt-contrib-watch": "0.x",
+    "grunt-contrib-uglify": "0.x",
+    "grunt-contrib-less": "0.x",
+    "grunt-contrib-jshint": "0.x",
+    "grunt-browserify": "1.x",
+    "grunt-nodemon": "0.x",
+    "grunt-concurrent": "0.x"
+  },
+  "engines": {
+    "node": ">= 0.10.5",
+    "npm": ">= 1.1.49"
+  },
+  "private": true
+}
