@@ -30,7 +30,8 @@
     "grunt-browserify": "1.x",
     "grunt-nodemon": "0.x",
     "grunt-concurrent": "0.x",
-    "newrelic": "~1.1.1"
+    "newrelic": "~1.1.1",
+    "q": "~0.9.7"
   },
   "engines": {
     "node": ">= 0.10.5",
