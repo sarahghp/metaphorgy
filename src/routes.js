@@ -4,7 +4,8 @@ var querystring = require('querystring'),
 module.exports = function(app){
   app.get('/', function(req, res){
     res.render('home/home', {
-      subtitle: 'Home'
+      googleAnalyticsId: app.config.googleAnalyticsId,
+      googleAnalyticsDomain: app.config.googleAnalyticsDomain
     });
   });
 
@@ -12,7 +13,9 @@ module.exports = function(app){
     res.render('home/home', {
       subtitle: 'Game',
       word: req.params.word,
-      metaphor: req.params.metaphor
+      metaphor: req.params.metaphor,
+      googleAnalyticsId: app.config.googleAnalyticsId,
+      googleAnalyticsDomain: app.config.googleAnalyticsDomain
     });
   });
 
