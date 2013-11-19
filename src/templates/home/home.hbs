@@ -13,19 +13,12 @@
 <section class='container'>
   <form action='/metaphor' id='metaform'>
     <div id='question' class='row {{#if metaphor}}hidden{{/if}}'>
-      <div class='col-sm-7 col-sm-offset-2'>
-        <div class='input-group input-group-lg'>
-          <div class='input-group-btn'>
-            <button type='button' id='article-word' class='btn btn-primary dropdown-toggle' data-toggle='dropdown'> My <span class='caret'></span></button>
-            <ul class='dropdown-menu'>
-              <li><a href='#'>My</a></li>
-              <li><a href='#'>A</a></li>
-              <li><a href='#'>The</a></li>
-            </ul>
-          </div><!-- /btn-group -->
-
-          <input type='text' id='word-entry' class='form-control' placeholder='Enter a word' name='word'>
+      
+        <div class='col-sm-1 col-sm-offset-2'> 
+          <p class='entry'>My</p>
         </div>
+        <div class="col-sm-6">
+          <input type='text' id='word-entry' class='form-control' placeholder='Enter a word' name='word'>
       </div>
       <div class='col-sm-2'><p class='entry'>is a</p></div>
     </div>

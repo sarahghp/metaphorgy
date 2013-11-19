@@ -5887,6 +5887,7 @@ p.result {
   border-radius: 0;
   border-bottom: 2px solid #000;
   height: 63px;
+  font-size: 24px;
 }
 ::-webkit-input-placeholder {
   font-size: 24px;
