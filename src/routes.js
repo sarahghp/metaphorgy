@@ -24,17 +24,22 @@ module.exports = function(app){
     }
   });
 
-  var getMetaphor = function(word, callback){
+  var getRandom = function(callback){
     var query = {
-      useCanonical: true,
-      relationshipTypes: 'same-context',
-      limitPerRelationshipType: 10,
+      hasDictionaryDef: true,
+      includePartOfSpeech: 'noun',
+      minCorpusCount: 1,
+      maxCorpusCount: -1,
+      minDictionaryCount: 3,
+      maxDictionaryCount: -1,
+      minLength: 5,
+      maxLength: -1,
       api_key: app.config.wordnikAPIKey
     };
 
     var qs = querystring.stringify(query);
 
-    var url = 'http://api.wordnik.com/v4/word.json/' + word + '/relatedWords?' + qs;
+    var url = 'http://api.wordnik.com/v4/words.json/randomWord?' + qs;
 
     http.get(url, function(res) {
       var body = '';
@@ -44,16 +49,8 @@ module.exports = function(app){
       });
 
       res.on('end', function() {
-        var r = JSON.parse(body),
-            metaphor = '',
-            words;
-
-        if(r && r.length && r[0].words){
-          words = r[0].words,
-          metaphor = words[parseInt(Math.random() * words.length)];
-        }
-
-        callback(null, metaphor)
+        var r = JSON.parse(body);
+        callback(null, r.word)
       });
 
     }).on('error', function(e) {
@@ -93,7 +90,46 @@ module.exports = function(app){
     }).on('error', function(e) {
       callback(e, null)
     });
+  };
 
+  var getMetaphor = function(word, callback){
+    var query = {
+      useCanonical: true,
+      relationshipTypes: 'same-context',
+      limitPerRelationshipType: 10,
+      api_key: app.config.wordnikAPIKey
+    };
+
+    var qs = querystring.stringify(query);
+
+    var url = 'http://api.wordnik.com/v4/word.json/' + word + '/relatedWords?' + qs;
+
+    http.get(url, function(res) {
+      var body = '';
+
+      res.on('data', function(chunk) {
+        body += chunk;
+      });
+
+      res.on('end', function() {
+        var r = JSON.parse(body),
+            metaphor = '',
+            words;
+
+        console.log(r);
+
+        if(r && r.length && r[0].words){
+          words = r[0].words,
+          metaphor = words[parseInt(Math.random() * words.length)];
+          callback(null, metaphor)
+        }else{
+          getRandom(callback);
+        }
+      });
+
+    }).on('error', function(e) {
+      callback(e, null)
+    });
   };
 
   app.get('/metaphor/:word', function(req, res){
@@ -106,11 +142,7 @@ module.exports = function(app){
 
       getMetaphor(word, function(err, metaphor){
         getAdjective(function(err, adjective){
-          var fullMetaphor = '';
-
-          if(metaphor){
-            var fullMetaphor = adjective + ' ' + metaphor;
-          }
+          var fullMetaphor = adjective + ' ' + metaphor;
 
           res.format({
             html: function(){
