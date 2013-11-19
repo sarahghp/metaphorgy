@@ -1,4 +1,5 @@
 var querystring = require('querystring'),
+    Q = require('q'),
     http = require('http');
 
 module.exports = function(app){
@@ -27,7 +28,9 @@ module.exports = function(app){
     }
   });
 
-  var getRandom = function(callback){
+  var getRandom = function(){
+    var deferred = Q.defer();
+
     var query = {
       hasDictionaryDef: true,
       includePartOfSpeech: 'noun',
@@ -53,15 +56,19 @@ module.exports = function(app){
 
       res.on('end', function() {
         var r = JSON.parse(body);
-        callback(null, r.word)
+        deferred.resolve(r.word);
       });
 
     }).on('error', function(e) {
-      callback(e, null)
+      deferred.reject(e.message);
     });
+
+    return deferred.promise;
   };
 
-  var getAdjective = function(callback){
+  var getAdjective = function(){
+    var deferred = Q.defer();
+
     var query = {
       hasDictionaryDef: true,
       includePartOfSpeech: 'adjective',
@@ -87,15 +94,19 @@ module.exports = function(app){
 
       res.on('end', function() {
         var r = JSON.parse(body);
-        callback(null, r.word)
+        deferred.resolve(r.word);
       });
 
     }).on('error', function(e) {
-      callback(e, null)
+      deferred.reject(e.message)
     });
+
+    return deferred.promise;
   };
 
-  var getMetaphor = function(word, callback){
+  var getMetaphor = function(word){
+    var deferred = Q.defer();
+
     var query = {
       useCanonical: true,
       relationshipTypes: 'same-context',
@@ -119,47 +130,43 @@ module.exports = function(app){
             metaphor = '',
             words;
 
-        console.log(r);
-
         if(r && r.length && r[0].words){
           words = r[0].words,
           metaphor = words[parseInt(Math.random() * words.length)];
-          callback(null, metaphor)
+          deferred.resolve(metaphor)
         }else{
-          getRandom(callback);
+          getRandom().then(deferred.resolve, deferred.reject);
         }
       });
 
     }).on('error', function(e) {
-      callback(e, null)
+      deferred.reject(e.message)
     });
+
+    return deferred.promise;
   };
 
   app.get('/metaphor/:word', function(req, res){
-    getMetaphor(req.params.word, function(err, data){
-      if(err){
-        return app.err(err);
-      }
+    var word = req.params.word,
+        promise = Q.all([getMetaphor(word), getAdjective()]);
 
-      var word = req.params.word;
+    promise.then(function(arr){
+      var metaphor = arr[0],
+          adjective = arr[1];
 
-      getMetaphor(word, function(err, metaphor){
-        getAdjective(function(err, adjective){
-          var fullMetaphor = adjective + ' ' + metaphor;
+      var fullMetaphor = adjective + ' ' + metaphor;
 
-          res.format({
-            html: function(){
-              res.redirect('/metaphor/' + word + '/' + fullMetaphor + '/');
-            },
+      res.format({
+        html: function(){
+          res.redirect('/metaphor/' + word + '/' + fullMetaphor + '/');
+        },
 
-            json: function(){
-              res.send({
-                word: word,
-                metaphor: fullMetaphor
-              });
-            }
+        json: function(){
+          res.send({
+            word: word,
+            metaphor: fullMetaphor
           });
-        });
+        }
       });
     });
   });
