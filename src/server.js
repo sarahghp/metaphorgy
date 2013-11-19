@@ -1,5 +1,7 @@
-// Load all of the dependencies we need to start up the web server
+// Require newrelic for app traces
+require('newrelic');
 
+// Load all of the dependencies we need to start up the web server
 var http = require('http'),
     connect = require('connect'),
     express = require('express'),
