@@ -8,7 +8,8 @@ $(function(){
       question = $('#question'),
       answer = $('#answer'),
       answerWord = $('#word'),
-      answerMetaphor = $('#metaphor');
+      answerMetaphor = $('#metaphor'),
+      twitterShare = $('#twitter-share');
 
   // Used later for history state changes
   var metaphorUrlRegex = /metaphor\/(.+)\/(.+)/;
@@ -17,6 +18,10 @@ $(function(){
     // Set the text
     answerWord.text(word);
     answerMetaphor.text(metaphor);
+
+    twitterShare.attr('href', 
+      'https://twitter.com/share?url=https%3A%2F%2Fwww.metaphor.gy%2Fmetaphor%2F' + word + '%2F' + metaphor + 
+        '&text=My%20' + word + '%20is%20a%20' + metaphor + '.%20&hashtags=metaphorgy');
 
     // Toggle all the classes, and undisable the button
     btnEntry.addClass('btn-success3d').removeAttr('disabled');
