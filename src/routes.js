@@ -19,8 +19,8 @@ module.exports = function(app){
 
     res.render('home/home', {
       subtitle: 'Game',
-      word: req.params.word,
-      metaphor: req.params.metaphor,
+      word: req.params.word.replace(/-/, ' '),
+      metaphor: req.params.metaphor.replace(/-/, ' '),
       article: article,
       googleAnalyticsId: app.config.googleAnalyticsId,
       googleAnalyticsDomain: app.config.googleAnalyticsDomain

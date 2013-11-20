@@ -17,11 +17,14 @@ $(function(){
   var metaphorUrlRegex = /metaphor\/(.+)\/(.+)/;
 
   var showAnswer = function(word, metaphor){
-    var article = 'a';
+    var metaphorSlug = metaphor.replace(/\s/, '-'),
+        wordSlug = word.replace(/\s/, '-'),
+        article = 'a';
 
     if(metaphor[0].match(/[aeiou]/)){
       article = 'an';
     }
+
 
     // Set the text
     answerWord.text(word);
@@ -30,9 +33,9 @@ $(function(){
 
     title.text('Metaphorgy: My ' + word + ' is ' + article + ' ' + metaphor);
 
-    twitterShare.attr('href', 
-      'https://twitter.com/share?url=https%3A%2F%2Fwww.metaphor.gy%2Fmetaphor%2F' + word + '%2F' + metaphor + 
-        '&text=My%20' + word + '%20is%20a%20' + metaphor + '.%20&hashtags=metaphorgy');
+    twitterShare.attr('href',
+      'http://twitter.com/intent/tweet?url=http://www.metaphor.gy/metaphor/' + wordSlug + '/' + metaphorSlug +
+        '&text=My ' + word + ' is ' + metaphor + '.&hashtags=metaphorgy');
 
     // Toggle all the classes, and undisable the button
     btnEntry.addClass('btn-success3d').removeAttr('disabled');
@@ -90,9 +93,12 @@ $(function(){
         // Load the metaphor from the server
         $.getJSON('/metaphor/' + word, function(data){
           if(data.metaphor){
+            var metaphorSlug = data.metaphor.replace(/\s/, '-'),
+                wordSlug = word.replace(/\s/, '-');
+
             // Save it in the history so it looks like  a legit url
             if(history && history.pushState){
-              history.pushState(null, null, '/metaphor/' + data.word + '/' + data.metaphor);
+              history.pushState(null, null, '/metaphor/' + wordSlug + '/' + metaphorSlug);
             }
 
             // Show the answer in the fields
@@ -113,8 +119,9 @@ $(function(){
     var regexResult = metaphorUrlRegex.exec(location.pathname);
 
     if(regexResult && regexResult.length == 3){
-      var word = decodeURI(regexResult[1]),
-          metaphor = decodeURI(regexResult[2]);
+      var word = decodeURI(regexResult[1]).replace(/-/, ' '),
+          metaphor = decodeURI(regexResult[2]).replace(/-/, ' ');
+
       showAnswer(word, metaphor);
     }else{
       resetForm();
