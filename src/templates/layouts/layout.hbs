@@ -16,8 +16,14 @@
       {{{body}}}
     </div>
 
-    {{! JavaScript libraries; loaded from src/public/js/lib   }}
-    <script type="text/javascript" src='/js/lib/jquery-1.10.2.min.js'></script>
+    {{! load either new jquery for browsers that can handle it, or old jquery for old IE }}
+
+    <!--[if lte IE 8]>
+      <script type="text/javascript" src='/js/lib/jquery-1.10.2.min.js'></script>
+    <![endif]-->
+    <!--[if !IE]> -->
+      <script type="text/javascript" src='/js/lib/jquery-2.0.3.min.js'></script>
+    <!-- <![endif]-->
 
     {{! Compiled js; built with grunt and loaded from src/public/build/js }}
     <script type="text/javascript" src='/js/app.min.js'></script>
