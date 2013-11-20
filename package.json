@@ -4,6 +4,8 @@
   "version": "0.0.1",
   "main": "app.js",
   "scripts": {
+    "start": "node src/server.js",
+    "watch": "./node_modules/grunt-cli/bin/grunt watch-build",
     "postinstall": "echo postinstall time; ./node_modules/grunt-cli/bin/grunt production"
   },
   "repository": {
