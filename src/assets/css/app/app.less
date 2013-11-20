@@ -76,28 +76,44 @@ p.result {
   border-bottom: 2px solid #000;
   height: 63px;
   font-size: 24px;
+  text-align: center;
+
+  @media (min-width: @screen-sm) {
+      text-align: left;
+    };
 }
 
 
 ::-webkit-input-placeholder { 
-    text-align: center;
-    font-size: 24px;  
+    @media (min-width: @screen-sm) {
+      text-align: left;
+    };
+    font-size: 24px;
+    text-align: center;  
 }
 
-:-moz-placeholder
-{ 
-    text-align: center;
-    font-size: 24px;  
+:-moz-placeholder { 
+    @media (min-width: @screen-sm) {
+      text-align: left;
+    };
+    font-size: 24px;
+    text-align: center;  
 }
 
 ::-moz-placeholder { 
-    text-align: center;
-    ont-size: 24px;  
+    @media (min-width: @screen-sm) {
+      text-align: left;
+    };
+    font-size: 24px;
+    text-align: center;  
 }
 
 :-ms-input-placeholder { 
-    text-align: center;
-    font-size: 24px;  
+    @media (min-width: @screen-sm) {
+      text-align: left;
+    };
+    font-size: 24px;
+    text-align: center;  
 }
 
 .submit {
