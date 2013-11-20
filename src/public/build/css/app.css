@@ -5887,6 +5887,9 @@ td.visible-print {
   -moz-transition: opacity 0.3s;
   transition: opacity 0.3s;
 }
+a.name {
+  color: #0c625c;
+}
 p.entry {
   line-height: 45px;
   margin-top: 10px;
