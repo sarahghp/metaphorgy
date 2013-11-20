@@ -101,6 +101,7 @@ $(function(){
               history.pushState(null, null, '/metaphor/' + wordSlug + '/' + metaphorSlug);
             }
 
+            ga('send', 'event', 'metaphor', 'create', word);
             // Show the answer in the fields
             showAnswer(data.word, data.metaphor);
           }else{
