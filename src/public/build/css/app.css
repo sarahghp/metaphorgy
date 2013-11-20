@@ -5920,22 +5920,48 @@ p.result {
   border-bottom: 2px solid #000;
   height: 63px;
   font-size: 24px;
+  text-align: center;
+}
+@media (min-width: 768px) {
+  #word-entry {
+    text-align: left;
+  }
 }
 ::-webkit-input-placeholder {
-  text-align: center;
   font-size: 24px;
+  text-align: center;
+}
+@media (min-width: 768px) {
+  ::-webkit-input-placeholder {
+    text-align: left;
+  }
 }
 :-moz-placeholder {
-  text-align: center;
   font-size: 24px;
+  text-align: center;
+}
+@media (min-width: 768px) {
+  :-moz-placeholder {
+    text-align: left;
+  }
 }
 ::-moz-placeholder {
+  font-size: 24px;
   text-align: center;
-  ont-size: 24px;
+}
+@media (min-width: 768px) {
+  ::-moz-placeholder {
+    text-align: left;
+  }
 }
 :-ms-input-placeholder {
-  text-align: center;
   font-size: 24px;
+  text-align: center;
+}
+@media (min-width: 768px) {
+  :-ms-input-placeholder {
+    text-align: left;
+  }
 }
 .submit {
   text-align: center;
