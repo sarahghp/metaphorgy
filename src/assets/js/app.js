@@ -93,8 +93,8 @@ $(function(){
         // Load the metaphor from the server
         $.getJSON('/metaphor/' + word, function(data){
           if(data.metaphor){
-            var metaphorSlug = data.metaphor.replace(/\s/, '-'),
-                wordSlug = word.replace(/\s/, '-');
+            var metaphorSlug = encodeURI(data.metaphor.replace(/\s/, '-')),
+                wordSlug = encodeURI(word.replace(/\s/, '-'));
 
             // Save it in the history so it looks like  a legit url
             if(history && history.pushState){
