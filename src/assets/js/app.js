@@ -93,15 +93,19 @@ $(function(){
         // Load the metaphor from the server
         $.getJSON('/metaphor/' + word, function(data){
           if(data.metaphor){
-            var metaphorSlug = encodeURI(data.metaphor.replace(/\s/, '-')),
-                wordSlug = encodeURI(word.replace(/\s/, '-'));
+            var metaphorSlug = encodeURIComponent(data.metaphor.replace(/\s/, '-')),
+                wordSlug = encodeURIComponent(word.replace(/\s/, '-'));
 
             // Save it in the history so it looks like  a legit url
             if(history && history.pushState){
               history.pushState(null, null, '/metaphor/' + wordSlug + '/' + metaphorSlug);
             }
 
-            //ga('send', 'event', 'metaphor', 'create', word);
+            // Track the metaphor in google analytics, if available
+            if(typeof ga != 'undefined' && ga){
+              ga('send', 'event', 'metaphor', 'create', word);
+            }
+
             // Show the answer in the fields
             showAnswer(data.word, data.metaphor);
           }else{
@@ -120,8 +124,8 @@ $(function(){
     var regexResult = metaphorUrlRegex.exec(location.pathname);
 
     if(regexResult && regexResult.length == 3){
-      var word = decodeURI(regexResult[1]).replace(/-/, ' '),
-          metaphor = decodeURI(regexResult[2]).replace(/-/, ' ');
+      var word = decodeURIComponent(regexResult[1]).replace(/-/, ' '),
+          metaphor = decodeURIComponent(regexResult[2]).replace(/-/, ' ');
 
       showAnswer(word, metaphor);
     }else{
