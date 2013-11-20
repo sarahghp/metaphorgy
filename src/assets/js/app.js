@@ -35,7 +35,7 @@ $(function(){
 
     twitterShare.attr('href',
       'http://twitter.com/intent/tweet?url=http://www.metaphor.gy/metaphor/' + wordSlug + '/' + metaphorSlug +
-        '&text=My ' + word + ' is ' + metaphor + '.&hashtags=metaphorgy');
+        '&text=My ' + word + ' is ' + article + ' ' + metaphor + '.&hashtags=metaphorgy');
 
     // Toggle all the classes, and undisable the button
     btnEntry.addClass('btn-success3d').removeAttr('disabled');
