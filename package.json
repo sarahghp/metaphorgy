@@ -4,7 +4,7 @@
   "version": "0.0.1",
   "main": "app.js",
   "scripts": {
-    "postinstall": "echo postinstall time; ./node_modules/grunt-cli/bin/grunt"
+    "postinstall": "echo postinstall time; ./node_modules/grunt-cli/bin/grunt production"
   },
   "repository": {
     "type": "git",
