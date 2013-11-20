@@ -19,7 +19,6 @@ app.set('port', app.config.port);
 // Configure the webserver, and set up middleware
 app.configure(function(){
   app.use(express.bodyParser());
-  app.use(express.favicon());
   app.use(connect.compress());
 
   // Set up static directories; if a file isn't found in one directory, it will
