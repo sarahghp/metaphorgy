@@ -437,7 +437,13 @@ h2,
 }
 h3,
 .h3 {
-  font-size: 28px;
+  font-size: 18px;
+}
+@media (min-width: 768px) {
+  h3,
+  .h3 {
+    font-size: 28px;
+  }
 }
 h4,
 .h4 {
@@ -445,7 +451,13 @@ h4,
 }
 h5,
 .h5 {
-  font-size: 16px;
+  font-size: 14px;
+}
+@media (min-width: 768px) {
+  h5,
+  .h5 {
+    font-size: 16px;
+  }
 }
 h6,
 .h6 {
@@ -5844,7 +5856,12 @@ td.visible-print {
   background: #a6eaf0;
 }
 .jumbo {
-  font-size: 100px;
+  font-size: 40px;
+}
+@media (min-width: 768px) {
+  .jumbo {
+    font-size: 100px;
+  }
 }
 .jumbotron {
   background-color: #40d3df;
@@ -5854,18 +5871,42 @@ td.visible-print {
   height: 600px;
   z-index: 1;
 }
+.xs-bottom-gutter {
+  margin-bottom: 1.5em;
+}
+@media (min-width: 768px) {
+  .xs-bottom-gutter {
+    margin-bottom: 12px;
+  }
+}
 #question,
 #answer {
-  margin: 84px 0;
+  margin: 84px 0 42px 0;
+  min-height: 120px;
   -webkit-transition: opacity 0.3s;
   -moz-transition: opacity 0.3s;
   transition: opacity 0.3s;
 }
 p.entry {
-  text-align: left;
   line-height: 45px;
   margin-top: 10px;
   font-size: 48px;
+}
+p.entry.pre {
+  text-align: center;
+}
+@media (min-width: 768px) {
+  p.entry.pre {
+    text-align: right;
+  }
+}
+p.entry.post {
+  text-align: center;
+}
+@media (min-width: 768px) {
+  p.entry.post {
+    text-align: left;
+  }
 }
 p.result {
   font-size: 48px;
@@ -5888,18 +5929,48 @@ p.result {
   border-bottom: 2px solid #000;
   height: 63px;
   font-size: 24px;
+  text-align: center;
+}
+@media (min-width: 768px) {
+  #word-entry {
+    text-align: left;
+  }
 }
 ::-webkit-input-placeholder {
   font-size: 24px;
+  text-align: center;
+}
+@media (min-width: 768px) {
+  ::-webkit-input-placeholder {
+    text-align: left;
+  }
 }
 :-moz-placeholder {
   font-size: 24px;
+  text-align: center;
+}
+@media (min-width: 768px) {
+  :-moz-placeholder {
+    text-align: left;
+  }
 }
 ::-moz-placeholder {
   font-size: 24px;
+  text-align: center;
+}
+@media (min-width: 768px) {
+  ::-moz-placeholder {
+    text-align: left;
+  }
 }
 :-ms-input-placeholder {
   font-size: 24px;
+  text-align: center;
+}
+@media (min-width: 768px) {
+  :-ms-input-placeholder {
+    text-align: left;
+  }
 }
 .submit {
   text-align: center;
@@ -5914,8 +5985,8 @@ p.result {
   border: none;
   background-color: #eee;
   color: #0c625c;
-  padding: 25px 80px;
-  margin: 15px 30px;
+  padding: 25px 25px;
+  margin: 15px 15px;
   text-transform: uppercase;
   letter-spacing: 1px;
   font-weight: 700;
@@ -5927,6 +5998,12 @@ p.result {
   -webkit-transform-style: preserve-3d;
   -moz-transform-style: preserve-3d;
   transform-style: preserve-3d;
+}
+@media (min-width: 768px) {
+  .btn-entry {
+    padding: 25px 80px;
+    margin: 15px 30px;
+  }
 }
 .btn-entry:active {
   background: #fff;

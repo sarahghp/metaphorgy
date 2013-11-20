@@ -8,7 +8,10 @@
 }
 
 .jumbo {
-  font-size: 100px;
+  font-size: 40px;
+  @media (min-width: @screen-sm) { 
+    font-size: 100px; 
+  }
 }
 
 .jumbotron {
@@ -21,20 +24,41 @@
   z-index: 1;
 }
 
+.xs-bottom-gutter {
+  margin-bottom: 1.5em;
+  @media (min-width: @screen-sm){
+    margin-bottom:12px;
+  }
+}
+
 #question, #answer {
-  margin: 84px 0;
+  margin: 84px 0 42px 0;
+  min-height: 120px;
   -webkit-transition: opacity 0.3s;
   -moz-transition: opacity 0.3s;
   transition: opacity 0.3s;
 }
 
+
 p.entry {
-  text-align: left;
   line-height: 45px;
   margin-top: 10px;
   font-size: 48px;
 }
 
+p.entry.pre {
+  text-align: center;
+  @media (min-width: @screen-sm){
+    text-align: right;
+  }
+}
+
+p.entry.post {
+    text-align: center;
+    @media (min-width: @screen-sm){
+    text-align: left;
+  }
+}
 
 p.result {
   font-size: 48px;
@@ -61,24 +85,44 @@ p.result {
   border-bottom: 2px solid #000;
   height: 63px;
   font-size: 24px;
+  text-align: center;
+
+  @media (min-width: @screen-sm) {
+      text-align: left;
+    };
 }
 
 
 ::-webkit-input-placeholder { 
-    font-size: 24px;  
+    @media (min-width: @screen-sm) {
+      text-align: left;
+    };
+    font-size: 24px;
+    text-align: center;  
 }
 
-:-moz-placeholder
-{ 
-    font-size: 24px;  
+:-moz-placeholder { 
+    @media (min-width: @screen-sm) {
+      text-align: left;
+    };
+    font-size: 24px;
+    text-align: center;  
 }
 
 ::-moz-placeholder { 
-    font-size: 24px;  
+    @media (min-width: @screen-sm) {
+      text-align: left;
+    };
+    font-size: 24px;
+    text-align: center;  
 }
 
 :-ms-input-placeholder { 
-    font-size: 24px;  
+    @media (min-width: @screen-sm) {
+      text-align: left;
+    };
+    font-size: 24px;
+    text-align: center;  
 }
 
 .submit {
@@ -97,8 +141,13 @@ p.result {
   border: none;
   background-color: #eee;
   color: #0c625c;
-  padding: 25px 80px;
-  margin: 15px 30px;
+  padding: 25px 25px;
+  margin: 15px 15px;
+  @media (min-width: @screen-sm){
+    padding: 25px 80px;
+    margin: 15px 30px;
+  };
+
   text-transform: uppercase;
   letter-spacing: 1px;
   font-weight: 700;
