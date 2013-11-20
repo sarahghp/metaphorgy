@@ -5976,8 +5976,8 @@ p.result {
   border: none;
   background-color: #eee;
   color: #0c625c;
-  padding: 25px 80px;
-  margin: 15px 30px;
+  padding: 25px 25px;
+  margin: 15px 15px;
   text-transform: uppercase;
   letter-spacing: 1px;
   font-weight: 700;
@@ -5989,6 +5989,12 @@ p.result {
   -webkit-transform-style: preserve-3d;
   -moz-transform-style: preserve-3d;
   transform-style: preserve-3d;
+}
+@media (min-width: 768px) {
+  .btn-entry {
+    padding: 25px 80px;
+    margin: 15px 30px;
+  }
 }
 .btn-entry:active {
   background: #fff;
