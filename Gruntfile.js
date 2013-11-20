@@ -33,12 +33,12 @@ module.exports = function(grunt) {
     uglify: {
       production: {
         options: {
-          banner: '/*! <%= pkg.name %> - v<%= pkg.version %> - <%= grunt.template.today("yyyy-mm-dd") %> */'
+          banner: '/*! <%= pkg.name %> - v<%= pkg.version %> - <%= grunt.template.today("yyyy-mm-dd") %> */',
+          dead_code: true
         },
 
-        build: {
-          src: './src/public/build/js/app.min.js',
-          dest: './src/public/build/js/app.min.js'
+        files: {
+          './src/public/build/js/app.min.js': ['./src/public/build/js/app.min.js']
         }
       }
     },
@@ -55,7 +55,7 @@ module.exports = function(grunt) {
       production: {
         options: {
           paths: ["./src/assets/css"],
-          yuicompress: true
+          compress: true
         },
         files: {
           "./src/public/build/css/app.css": "./src/assets/css/app.less"
@@ -66,21 +66,21 @@ module.exports = function(grunt) {
     watch: {
       scripts: {
         files: './src/assets/js/**/*.js',
-        tasks: ['build-js'],
+        tasks: ['browserify:development'],
         options: {
           interrupt: true
         }
       },
       templates: {
         files: './src/templates/**/*.hbs',
-        tasks: ['build-js'],
+        tasks: ['browserify:development'],
         options: {
           interrupt: true
         }
       },
       stylesheets: {
         files: './src/assets/css/**/*.less',
-        tasks: ['build-less'],
+        tasks: ['less:development'],
         options: {
           interrupt: true
         }
@@ -113,10 +113,8 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-nodemon');
   grunt.loadNpmTasks('grunt-concurrent');
 
-  grunt.registerTask('build-less', ['less']);
-  grunt.registerTask('build-js', ['browserify:development']);
-
-  grunt.registerTask('default', ['build-js', 'build-less']);
+  grunt.registerTask('default', ['browserify:development', 'less:development']);
+  grunt.registerTask('production', ['browserify:production', 'uglify:production', 'less:production']);
   grunt.registerTask('watch-build', ['concurrent:development']);
 };
 
