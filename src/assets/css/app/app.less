@@ -132,8 +132,13 @@ p.result {
   border: none;
   background-color: #eee;
   color: #0c625c;
-  padding: 25px 80px;
-  margin: 15px 30px;
+  padding: 25px 25px;
+  margin: 15px 15px;
+  @media (min-width: @screen-sm){
+    padding: 25px 80px;
+    margin: 15px 30px;
+  };
+
   text-transform: uppercase;
   letter-spacing: 1px;
   font-weight: 700;
