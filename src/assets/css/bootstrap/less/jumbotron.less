@@ -4,7 +4,8 @@
 
 
 .jumbotron {
-  padding: @jumbotron-padding;
+  padding: 0;
+  @media(min-width: @screen-sm){padding: @jumbotron-padding;} 
   margin-bottom: 0;
   font-size: (@font-size-base * 1.5);
   font-weight: 200;

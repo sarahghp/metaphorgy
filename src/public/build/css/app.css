@@ -2115,13 +2115,18 @@ input[type="button"].btn-block {
   width: 100%;
 }
 .jumbotron {
-  padding: 30px;
+  padding: 0;
   margin-bottom: 0;
   font-size: 24px;
   font-weight: 200;
   line-height: 2.1428571435;
   color: inherit;
   background-color: #eeeeee;
+}
+@media (min-width: 768px) {
+  .jumbotron {
+    padding: 30px;
+  }
 }
 .jumbotron h1 {
   line-height: 1;
@@ -2723,11 +2728,17 @@ td.visible-print {
 }
 #question,
 #answer {
-  margin: 84px 0 42px 0;
+  margin: 42px 0 42px 0;
   min-height: 166px;
   -webkit-transition: opacity 0.3s;
   -moz-transition: opacity 0.3s;
   transition: opacity 0.3s;
+}
+@media (min-width: 768px) {
+  #question,
+  #answer {
+    margin: 84px 0 42px 0;
+  }
 }
 a.name {
   color: #0c625c;
