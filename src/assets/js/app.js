@@ -78,10 +78,10 @@ $(function(){
     // Prevent the form from actually submitting; ajax instead
     e.preventDefault();
 
-    var word = wordEntry.val();
+    var word = wordEntry.val().trim().replace(/\//, ' ');
 
     // Only continue if word isn't empty
-    if(word != ""){
+    if(word != "" && word != "."){
       btnEntry.removeClass('btn-error3d');
 
       // Only do a thing if we're not waiting on a response
