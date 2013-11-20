@@ -10,7 +10,7 @@ module.exports = function(grunt) {
     browserify: {
       development: {
         files: {
-          './src/public/build/js/app.js': './src/assets/js/app.js'
+          './src/public/build/js/app.js': './src/assets/js/app.min.js'
         },
 
         options: {
@@ -21,7 +21,7 @@ module.exports = function(grunt) {
       },
       production: {
         files: {
-          './src/public/build/js/app.js': './src/assets/js/app.js'
+          './src/public/build/js/app.js': './src/assets/js/app.min.js'
         },
 
         options: {
@@ -31,24 +31,13 @@ module.exports = function(grunt) {
     },
 
     uglify: {
-      development: {
-        options: {
-          banner: '/*! <%= pkg.name %> - v<%= pkg.version %> - <%= grunt.template.today("yyyy-mm-dd") %> */',
-          sourceMap: './src/public/build/js/app.map.js'
-        },
-
-        build: {
-          src: './src/public/build/js/app.js',
-          dest: './src/public/build/js/app.min.js'
-        }
-      },
       production: {
         options: {
           banner: '/*! <%= pkg.name %> - v<%= pkg.version %> - <%= grunt.template.today("yyyy-mm-dd") %> */'
         },
 
         build: {
-          src: './src/public/build/js/app.js',
+          src: './src/public/build/js/app.min.js',
           dest: './src/public/build/js/app.min.js'
         }
       }
