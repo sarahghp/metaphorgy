@@ -17,8 +17,8 @@ $(function(){
   var metaphorUrlRegex = /metaphor\/(.+)\/(.+)/;
 
   var showAnswer = function(word, metaphor){
-    var metaphorSlug = metaphor.replace(/\s/, '-'),
-        wordSlug = word.replace(/\s/, '-'),
+    var metaphorSlug = metaphor.replace(/\s/g, '-'),
+        wordSlug = word.replace(/\s/g, '-'),
         article = 'a';
 
     if(metaphor[0].match(/[aeiou]/)){
@@ -91,10 +91,10 @@ $(function(){
         btnEntry.attr('disabled', 'disabled');
 
         // Load the metaphor from the server
-        $.getJSON('/metaphor/' + word, function(data){
+        $.getJSON('/metaphor/' + encodeURIComponent(word.replace(/\s/g, '-')), function(data){
           if(data.metaphor){
-            var metaphorSlug = encodeURIComponent(data.metaphor.replace(/\s/, '-')),
-                wordSlug = encodeURIComponent(word.replace(/\s/, '-'));
+            var metaphorSlug = encodeURIComponent(data.metaphor.replace(/\s/g, '-')),
+                wordSlug = encodeURIComponent(word.replace(/\s/g, '-'));
 
             // Save it in the history so it looks like  a legit url
             if(history && history.pushState){
@@ -124,8 +124,8 @@ $(function(){
     var regexResult = metaphorUrlRegex.exec(location.pathname);
 
     if(regexResult && regexResult.length == 3){
-      var word = decodeURIComponent(regexResult[1]).replace(/-/, ' '),
-          metaphor = decodeURIComponent(regexResult[2]).replace(/-/, ' ');
+      var word = decodeURIComponent(regexResult[1]).replace(/-/g, ' '),
+          metaphor = decodeURIComponent(regexResult[2]).replace(/-/g, ' ');
 
       showAnswer(word, metaphor);
     }else{

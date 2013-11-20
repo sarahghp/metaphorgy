@@ -19,8 +19,8 @@ module.exports = function(app){
 
     res.render('home/home', {
       subtitle: 'Game',
-      word: req.params.word.replace(/-/, ' '),
-      metaphor: req.params.metaphor.replace(/-/, ' '),
+      word: req.params.word.replace(/-/g, ' '),
+      metaphor: req.params.metaphor.replace(/-/g, ' '),
       article: article,
       googleAnalyticsId: app.config.googleAnalyticsId,
       googleAnalyticsDomain: app.config.googleAnalyticsDomain
@@ -154,7 +154,7 @@ module.exports = function(app){
   };
 
   app.get('/metaphor/:word', function(req, res){
-    var word = req.params.word,
+    var word = decodeURIComponent(req.params.word.replace(/-/g, ' ')),
         promise = Q.all([getMetaphor(word), getAdjective()]);
 
     promise.then(function(arr){
