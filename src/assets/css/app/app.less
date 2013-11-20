@@ -37,6 +37,20 @@ p.entry {
   font-size: 48px;
 }
 
+p.entry.pre {
+  text-align: center;
+  @media (min-width: @screen-sm){
+    text-align: right;
+  }
+}
+
+p.entry.post {
+    text-align: center;
+    @media (min-width: @screen-sm){
+    text-align: left;
+  }
+}
+
 p.result {
   font-size: 48px;
   line-height: 60px;
@@ -66,19 +80,23 @@ p.result {
 
 
 ::-webkit-input-placeholder { 
+    text-align: center;
     font-size: 24px;  
 }
 
 :-moz-placeholder
 { 
+    text-align: center;
     font-size: 24px;  
 }
 
 ::-moz-placeholder { 
-    font-size: 24px;  
+    text-align: center;
+    ont-size: 24px;  
 }
 
 :-ms-input-placeholder { 
+    text-align: center;
     font-size: 24px;  
 }
 
