@@ -10,7 +10,7 @@ module.exports = function(grunt) {
     browserify: {
       development: {
         files: {
-          './src/public/build/js/app.js': './src/assets/js/app.min.js'
+          './src/public/build/js/app.min.js': './src/assets/js/app.js'
         },
 
         options: {
@@ -21,7 +21,7 @@ module.exports = function(grunt) {
       },
       production: {
         files: {
-          './src/public/build/js/app.js': './src/assets/js/app.min.js'
+          './src/public/build/js/app.min.js': './src/assets/js/app.js'
         },
 
         options: {
