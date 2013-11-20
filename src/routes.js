@@ -11,10 +11,17 @@ module.exports = function(app){
   });
 
   app.get('/metaphor/:word/:metaphor', function(req, res){
+    var article = 'a';
+
+    if(req.params.metaphor[0].match(/[aeiou]/)){
+      article = 'an';
+    }
+
     res.render('home/home', {
       subtitle: 'Game',
       word: req.params.word,
       metaphor: req.params.metaphor,
+      article: article,
       googleAnalyticsId: app.config.googleAnalyticsId,
       googleAnalyticsDomain: app.config.googleAnalyticsDomain
     });

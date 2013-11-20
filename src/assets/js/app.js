@@ -9,15 +9,26 @@ $(function(){
       answer = $('#answer'),
       answerWord = $('#word'),
       answerMetaphor = $('#metaphor'),
-      twitterShare = $('#twitter-share');
+      answerArticle = $('#article'),
+      twitterShare = $('#twitter-share'),
+      title = $('title');
 
   // Used later for history state changes
   var metaphorUrlRegex = /metaphor\/(.+)\/(.+)/;
 
   var showAnswer = function(word, metaphor){
+    var article = 'a';
+
+    if(metaphor[0].match(/[aeiou]/)){
+      article = 'an';
+    }
+
     // Set the text
     answerWord.text(word);
     answerMetaphor.text(metaphor);
+    answerArticle.text(article);
+
+    title.text('Metaphorgy: My ' + word + ' is ' + article + ' ' + metaphor);
 
     twitterShare.attr('href', 
       'https://twitter.com/share?url=https%3A%2F%2Fwww.metaphor.gy%2Fmetaphor%2F' + word + '%2F' + metaphor + 
@@ -35,6 +46,8 @@ $(function(){
     btnEntry.removeClass('btn-success3d');
     question.removeClass('hidden');
     answer.addClass('hidden');
+
+    title.text('Metaphorgy: Metaphor Generator');
   }
 
   // When the button is clicked, either submit the form or reset the state
