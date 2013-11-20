@@ -25,7 +25,12 @@
 
     <div id='answer' class='col-sm-12 {{#unless metaphor}}hidden{{/unless}}'>
       <p class='result'>My <span class='word' id='word'>{{ word }}</span> is a <span class='word' id='metaphor'>{{metaphor}}</span>.</p>
-      <p class="text-center social"><a><i class="fa fa-twitter"></i> Tweet this metaphor.</a></p>
+      <p class="text-center social">
+        <a href="https://twitter.com/share?url=https%3A%2F%2Fwww.metaphor.gy%2Fmetaphor%2F{{word}}%2F{{metaphor}}&text=My%20{{word}}%20is%20a%20{{metaphor}}.%20&hashtags=metaphorgy" target="_blank" id="twitter-share">
+          <i class="fa fa-twitter"></i> Tweet this metaphor.
+        </a>
+      </p>
+
       </div>
 
       <div class='row submit'>
