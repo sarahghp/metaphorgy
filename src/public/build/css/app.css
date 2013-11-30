@@ -4080,10 +4080,21 @@ td.visible-print {
 a.name {
   color: #0c625c;
 }
-p.entry {
-  line-height: 45px;
+p.entry,
+p.result {
+  font-size: 34px;
+  line-height: 51px;
   margin-top: 10px;
-  font-size: 48px;
+}
+@media (min-width: 768px) {
+  p.entry,
+  p.result {
+    font-size: 48px;
+    line-height: 60px;
+  }
+}
+p.result {
+  text-align: center;
 }
 p.entry.pre {
   text-align: center;
@@ -4100,11 +4111,6 @@ p.entry.post {
   p.entry.post {
     text-align: left;
   }
-}
-p.result {
-  font-size: 48px;
-  line-height: 60px;
-  text-align: center;
 }
 #article-word {
   background: #fff;

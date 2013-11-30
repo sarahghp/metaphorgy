@@ -47,10 +47,18 @@ a {
   }
 }
 
-p.entry {
-  line-height: 45px;
+p.entry, p.result {
+  font-size: 34px;
+  line-height: 51px;
+  @media (min-width: @screen-sm){
+    font-size: 48px;
+    line-height: 60px;
+  } 
   margin-top: 10px;
-  font-size: 48px;
+}
+
+p.result {
+  text-align: center;
 }
 
 p.entry.pre {
@@ -63,16 +71,9 @@ p.entry.pre {
 p.entry.post {
     text-align: center;
     @media (min-width: @screen-sm){
-    text-align: left;
-  }
+      text-align: left;
+    }
 }
-
-p.result {
-  font-size: 48px;
-  line-height: 60px;
-  text-align: center;
-}
-
 
 #article-word {
   background: #fff;
