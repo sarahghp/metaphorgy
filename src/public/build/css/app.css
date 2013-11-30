@@ -4077,8 +4077,12 @@ td.visible-print {
     margin: 84px 0 42px 0;
   }
 }
-a.name {
+a.name,
+a.jumbo {
   color: #0c625c;
+}
+a.jumbo:hover {
+  text-decoration: none;
 }
 p.entry,
 p.result {

@@ -42,8 +42,13 @@
 }
 
 a {
-  &.name {
-  color: #0c625c;
+  &.name, &.jumbo {
+    color: #0c625c;
+  }
+  &.jumbo {
+    &:hover{
+      text-decoration: none;
+    }
   }
 }
 
