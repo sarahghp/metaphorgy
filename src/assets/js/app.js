@@ -37,10 +37,11 @@ $(function(){
       'http://twitter.com/intent/tweet?url=http://www.metaphor.gy/metaphor/' + wordSlug + '/' + metaphorSlug +
         '&text=My ' + word + ' is ' + article + ' ' + metaphor + '.&hashtags=metaphorgy');
 
-    // Toggle all the classes, and undisable the button
+    // Toggle all the classes, undisable the button, make mobile keyboards disappear
     btnEntry.addClass('btn-success3d').removeAttr('disabled');
     question.addClass('hidden');
     answer.removeClass('hidden');
+    wordEntry.blur();
   }
 
   // Reset the hidden classes and whatnot
